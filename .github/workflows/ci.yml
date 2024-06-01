@@ -1,0 +1,42 @@
+on:
+  - pull_request
+  - push
+
+name: CI
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+        php:
+          - "7.1"
+          - "7.2"
+          - "7.3"
+          - "7.4"
+          - "8.0"
+          - "8.1"
+          - "8.2"
+          - "8.3"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: pcov
+          ini-values: assert.exception=1, zend.assertions=1
+
+      - name: Install composer dependencies
+        run: composer update --no-ansi --no-interaction --no-progress
+
+      - name: Run tests with phpunit
+        run: vendor/bin/phpunit
