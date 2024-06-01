@@ -5,16 +5,12 @@
          executionOrder="depends,defects"
          beStrictAboutOutputDuringTests="true"
          colors="true"
-         cacheDirectory=".phpunit.cache"
          failOnWarning="true"
          failOnRisky="true"
-         failOnDeprecation="true"
          failOnIncomplete="true"
-         failOnNotice="true"
          failOnEmptyTestSuite="true"
          beStrictAboutChangesToGlobalState="true"
-         testdox="true"
-         beStrictAboutCoverageMetadata="true">
+         testdox="true">
     <testsuites>
         <testsuite name="default">
             <directory>tests</directory>
@@ -26,9 +22,4 @@
             <text outputFile="php://stdout"/>
         </report>
     </coverage>
-    <source>
-        <include>
-            <directory>src</directory>
-        </include>
-    </source>
 </phpunit>

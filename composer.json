@@ -5,7 +5,7 @@
     "homepage": "https://php.watch/versions/8.4/array_find-array_find_key-array_any-array_all",
     "keywords": ["php84", "phpwatch", "polyfills", "polyfill", "compatibility", "compat", "shim"],
     "require": {
-        "php": "^8.0"
+        "php": "^7.0 || ^8.0"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^5.3|^6.0"
